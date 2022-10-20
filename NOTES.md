@@ -40,10 +40,17 @@ goal.velocity.z = 0.0;
 What should be the goal speed now that we know we are in nominal state and we can continue freely? Remember that the speed is a vector. HINT: _speed_limit * std::sin/cos (goal.rotation.yaw).
 
 ### Solution
-
-
+From section 13 of the motion planning lecture: velocity components can be calculated using simple trigonometry. 
 ```
 goal.velocity.x = _speed_limit * cos(goal.rotation.yaw);
 goal.velocity.y = _speed_limit * sin(goal.rotation.yaw);
 goal.velocity.z = 0;
+```
+
+### TODO-maintain the same goal when in DECEL_TO_STOP state: 
+Make sure the new goal is the same as the previous goal (_goal). That way we keep/maintain the goal at the stop line.
+
+### Solution
+```
+goal = ;  
 ```
