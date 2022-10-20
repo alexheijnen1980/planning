@@ -135,3 +135,15 @@ ADD pi/2 to the goal yaw.
 ```  
 auto yaw = goal_state.rotation.yaw + M_PI / 2; 
 ```
+
+## TODO-offset goal location: 
+Calculate the x and y position of the offset goals using "offset" (calculated above) and  knowing that the goals should lie on a perpendicular line to the direction (yaw) of the main goal. You calculated this direction above (yaw_plus_90). 
+HINT: use std::cos(yaw_plus_90) and std::sin(yaw_plus_90) 
+
+### Solution
+From section 13 of the motion planning lecture: offsets can be calculated using simple trigonometry.
+
+```
+goal_offset.location.x += offset * cos(yaw); 
+goal_offset.location.y += offset * sin(yaw); 
+```
