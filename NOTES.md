@@ -147,3 +147,15 @@ From section 13 of the motion planning lecture: offsets can be calculated using 
 goal_offset.location.x += offset * cos(yaw); 
 goal_offset.location.y += offset * sin(yaw); 
 ```
+
+# Project Notes: velocity_profile_generator.cpp
+
+## TODO-calc distance:
+Use one of the common rectilinear accelerated equations of motion to calculate the distance traveled while going from v_i (initial velocity) to v_f (final velocity) at a constant acceleration/deceleration "a". 
+HINT look at the description of this function. Make sure you handle div by 0.
+    
+### Solution
+From section 26 of the motion planning lecture: distance_to_Vf = (Vf^2 - Vi^2) / 2a.
+```
+d = std::abs((v_f * v_f - v_i * v_i) / (2 * a));
+```
