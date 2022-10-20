@@ -52,5 +52,23 @@ Make sure the new goal is the same as the previous goal (_goal). That way we kee
 
 ### Solution
 ```
-goal = ;  
+goal = _goal;
+```
+
+## TODO-calculate the distance, use distance rather than speed, move to STOPPED state
+It turns out that when we teleport, the car is always at speed zero. In this the case, as soon as we enter the DECEL_TO_STOP state, the condition that we are <= _stop_threshold_speed is ALWAYS true and we move straight to "STOPPED" state. To solve this issue (since we don't have a motion controller yet), you should use "distance" instead of speed. Make sure the distance to the stopping point is <= P_STOP_THRESHOLD_DISTANCE. Uncomment the line used to calculate the distance.
+
+### Solution
+The line to compute the distance was already uncommented.
+```
+auto distance_to_stop_sign = utils::magnitude(goal.location - ego_state.location);
+// LOG(INFO) << "Ego distance to stop line: " << distance_to_stop_sign;
+
+if (utils::magnitude(ego_state.velocity) <= _stop_threshold_speed) {
+  if (distance_to_stop_sign <= P_STOP_THRESHOLD_DISTANCE) {
+    _active_maneuver = STOPPED;
+    _start_stop_time = std::chrono::high_resolution_clock::now();
+    // LOG(INFO) << "BP - changing to STOPPED";
+    }
+}
 ```
