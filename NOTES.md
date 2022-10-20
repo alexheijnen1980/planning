@@ -4,7 +4,7 @@ This repository contains the starter code to launch in the SDC Planning course w
 
 # Project Notes: behavior_planner_FSM.cpp
 
-## TODO-Lookahead: 
+## TODO-lookahead: 
 One way to find a reasonable lookahead distance is to find the distance you will need to come to a stop while traveling at speed V and  using a comfortable deceleration.  
 
 ### Solution
@@ -94,8 +94,21 @@ _active_maneuver = FOLLOW_LANE;
 Where should the circles be at? The code below is NOT complete. HINT: use CIRCLE_OFFSETS[c], sine and cosine to calculate x and y: cur_y + CIRCLE_OFFSETS[c] * std::sin/cos(cur_yaw).
 
 ### Solution
+From section 31 of the motion planning lecture: velocity circle center locations can be calculated using simple trigonometry. 
 
 ```
 auto circle_center_x = cur_x + CIRCLE_OFFSETS[c] * cos(cur_yaw); 
 auto circle_center_y = cur_y + CIRCLE_OFFSETS[c] * sin(cur_yaw); 
+```
+
+## TODO-distance from circles to obstacles/actor:
+How do you calculate the distance between the center of each circle and the obstacle/actor?
+
+### Solution
+From section 31 of the motion planning lecture: a collision can be identified by checking if the distance between the circle centers is ever closer than the sum of the radius of the circles (representing the ego vehicle and the actors). 
+
+```
+double dist = std::sqrt(
+              std::pow((circle_center_x - actor_center_x), 2) +
+              std::pow((circle_center_y - actor_center_y), 2));
 ```
