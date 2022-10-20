@@ -159,3 +159,12 @@ From section 26 of the motion planning lecture: distance_to_Vf = (Vf^2 - Vi^2) /
 ```
 d = std::abs((v_f * v_f - v_i * v_i) / (2 * a));
 ```
+
+## TODO-calc final speed: 
+Calculate the final distance. HINT: look at the description of this function. Make sure you  handle negative discriminant and make v_f = 0 in that case. If the discriminant is inf or nan return infinity.
+
+### Solution
+From section 25 of the motion planning lecture: Vf = sqrt(2a * sf + Vi*2)
+```
+double disc = v_i * v_i + 2 * a * d;
+```
