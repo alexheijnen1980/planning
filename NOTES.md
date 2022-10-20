@@ -80,3 +80,10 @@ Make sure the new goal is the same as the previous goal. That way we keep/mainta
 ```
 goal = _goal;
 ```
+## TODO-move to FOLLOW_LANE state
+What state do we want to move to, when we are "done" at the STOPPED state?
+      
+### Solution
+```      
+_active_maneuver = FOLLOW_LANE;
+``
