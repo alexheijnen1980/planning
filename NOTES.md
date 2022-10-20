@@ -177,3 +177,12 @@ Section 15 of the motion planning lecture introduces 7 goals.
 ```
 #define P_NUM_PATHS 7
 ```
+
+## TODO-num of points in the spiral:
+
+### Solution
+Section 22 of the motion planning lecture indicates the discretization resolution needs to be high enough to support accurate collision detection and to enable smooth motion control.
+```
+#define P_NUM_POINTS_IN_SPIRAL 10
+```
+
