@@ -23,3 +23,13 @@ goal.location.x += _stop_line_buffer * cos(ang);
 goal.location.y += _stop_line_buffer * sin(ang);
 ```
 
+## TODO-goal speed at stopping point:
+What should be the goal speed??
+
+The speed at the stopping point should be zero.
+```
+goal.velocity.x = 0.0;
+goal.velocity.y = 0.0;
+goal.velocity.z = 0.0;
+```
+
