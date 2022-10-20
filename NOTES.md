@@ -2,7 +2,7 @@
 
 This repository contains the starter code to launch in the SDC Planning course workspace.
 
-# Project Notes
+# Project Notes: behavior_planner_FSM.cpp
 
 ## TODO-Lookahead: 
 One way to find a reasonable lookahead distance is to find the distance you will need to come to a stop while traveling at speed V and  using a comfortable deceleration.  
@@ -86,4 +86,16 @@ What state do we want to move to, when we are "done" at the STOPPED state?
 ### Solution
 ```      
 _active_maneuver = FOLLOW_LANE;
-``
+```
+
+# Project Notes: cost_functions.cpp
+
+## TODO-circle placement:
+Where should the circles be at? The code below is NOT complete. HINT: use CIRCLE_OFFSETS[c], sine and cosine to calculate x and y: cur_y + CIRCLE_OFFSETS[c] * std::sin/cos(cur_yaw).
+
+### Solution
+
+```
+auto circle_center_x = cur_x + CIRCLE_OFFSETS[c] * cos(cur_yaw); 
+auto circle_center_y = cur_y + CIRCLE_OFFSETS[c] * sin(cur_yaw); 
+```
