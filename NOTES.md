@@ -168,3 +168,12 @@ From section 25 of the motion planning lecture: Vf = sqrt(2a * sf + Vi*2)
 ```
 double disc = v_i * v_i + 2 * a * d;
 ```
+# Project Notes: planning_params.h
+
+## TODO-num of paths (goals):
+
+### Solution
+Section 15 of the motion planning lecture introduces 7 goals.
+```
+#define P_NUM_PATHS 7
+```
