@@ -125,3 +125,13 @@ auto delta_x = main_goal.location.x - spiral[n - 1].x;
 auto delta_y = main_goal.location.y - spiral[n - 1].y;
 auto delta_z = main_goal.location.z - spiral[n - 1].z;
 ```
+
+# Project Notes: motion_planner.cpp
+
+## TODO-Perpendicular direction: 
+ADD pi/2 to the goal yaw.
+  
+### Solution
+```  
+auto yaw = goal_state.rotation.yaw + M_PI / 2; 
+```
