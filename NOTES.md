@@ -72,3 +72,11 @@ if (utils::magnitude(ego_state.velocity) <= _stop_threshold_speed) {
     }
 }
 ```
+
+## TODO-maintain the same goal when in STOPPED state: 
+Make sure the new goal is the same as the previous goal. That way we keep/maintain the goal at the stop line.
+
+### Solution
+```
+goal = _goal;
+```
